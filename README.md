@@ -224,9 +224,3 @@ Never commit your `application.properties`. Use the provided `application.proper
 B.E. Computer Science Engineering  
 [GitHub] (https://github.com/diya969)
 [LinkedIn] (https://www.linkedin.com/in/krishna-deepika-k-72baa0293/)
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
