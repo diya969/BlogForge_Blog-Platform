@@ -1,0 +1,25 @@
+# Server
+server.port=8080
+
+# Database
+spring.datasource.url=jdbc:mysql://localhost:3306/blogdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+spring.datasource.username=YOUR_USERNAME
+spring.datasource.password=YOUR_PASSWORD
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+# JWT
+jwt.secret=JWT_SECRET_KEY (must contain 64 charcters)
+jwt.expiration=86400000
+
+# Logging
+logging.level.org.springframework.security=DEBUG
+
+# Cloudinary
+cloudinary.cloud-name=YOUR_CLOUDINARY_CLOUD_NAME
+cloudinary.api-key=YOUR_CLOUDINARY_CLOUD_API_KEY
+cloudinary.api-secret=YOUR_CLOUDINARY_CLOUD_API_SECRET
