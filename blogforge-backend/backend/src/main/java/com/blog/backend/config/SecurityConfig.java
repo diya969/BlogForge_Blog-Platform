@@ -33,14 +33,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
+                .cors(cors -> {})   // ✅ enables CORS using the CorsFilter bean from CorsConfig.java
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()   // ✅ allows CORS preflight requests
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/comments/**").permitAll()
-                        .requestMatchers("/api/upload/**").authenticated()  // ✅ added
-                        .requestMatchers(HttpMethod.GET, "/api/posts/**").permitAll()  // already covers GET /like
-                        .requestMatchers("/ws/**").permitAll()        // ← ADD
-                        .requestMatchers("/api/messages/**").authenticated()  // ← ADD
+                        .requestMatchers("/api/upload/**").authenticated()
+                        .requestMatchers("/ws/**").permitAll()
+                        .requestMatchers("/api/messages/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess
